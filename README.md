@@ -13,7 +13,7 @@ The project contains two main python files:
 
 - `VideoMAE.py`: This is a script that processes video data using the VideoMAE model. It specifically handles video data streams and can be used for tasks that span several frames such as fatigue detection.
 
-- `ViTImage.py` (replace with your actual filename): This script processes static image data using ViT model. It receives an image file path as an argument and outputs the results of the analysis.
+- `ViTImage_Drowsiness_ImageProcessing.py` : This script processes static image data using ViT model. It receives an image file path as an argument and outputs the results of the analysis.
 
 ## Usage
 
@@ -21,8 +21,7 @@ For video analysis, run the following command: bash python VideoMAE.py <video-fi
 
 
 
-
-For image analysis, run: bash python ViTImage.py <image-file-path>
+For image analysis, run: bash python ViTImage_Drowsiness_ImageProcessing.py <image-file-path>
 
 Replace `<video-file-path>` and `<image-file-path>` with the path to your input video or image file.
 
