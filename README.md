@@ -5,7 +5,9 @@ This project implements an analysis of video and image data using the Vision Tra
 ## Installation
 
 Clone this repository to your local machine and install the necessary python dependencies by running:
-bash git clone https://github.com/tasnaps/DrowsinessDetection cd DrowsinessDetection pip install -r requirements.txt
+bash git clone https://github.com/tasnaps/DrowsinessDetection 
+cd DrowsinessDetection 
+pip install -r requirements.txt
 
 ## Files
 
@@ -18,8 +20,6 @@ The project contains two main python files:
 ## Usage
 
 For video analysis, run the following command: bash python VideoMAE.py <video-file-path>
-
-
 
 For image analysis, run: bash python ViTImage_Drowsiness_ImageProcessing.py <image-file-path>
 
