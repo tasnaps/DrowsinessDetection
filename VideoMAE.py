@@ -1,7 +1,7 @@
 """
 VideoMAE.py
 Author: tasnaps
-Date: 13 April 2024
+Date: 14 April 2024
 """
 
 
@@ -96,11 +96,11 @@ if args.path.lower().endswith(('.mp4', '.avi', '.mov', '.flv', '.wmv')):
                 print(f"Processing frame set starting at frame #{frameCount - num_frames + 1}")
                 predicted_class, confidence_score = process_images(np.array(list(last_frames)))
                 drowsinessAndConfidence.append(confidence_score)
-                if predicted_class == 0:
+                if predicted_class == 1:
                     print(f"At current set of frames, subject is Awake with confidence score of {confidence_score}")
                     awakeness += 1
                     awakeness_confidence += confidence_score
-                else:
+                elif predicted_class == 2:
                     print(f"At current set of frames, subject is Drowsy with confidence score of {confidence_score}")
                     drowsiness += 1
                     drowsiness_confidence += confidence_score
