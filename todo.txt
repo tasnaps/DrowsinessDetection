@@ -1,0 +1,4 @@
+1. Standard deviation of confidence scores
+2. Input subjective Karolinska scale scores to compare the values, if we agree with model predictions
+Storage format CSV:
+2024-11-25, 14:30, 7, video_1.mp4

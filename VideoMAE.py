@@ -69,8 +69,12 @@ def process_images(images):
 parser = argparse.ArgumentParser(description='Process an image or video for detection.')
 parser.add_argument('path', type=str, help='The path to the image or video file')
 args = parser.parse_args()
-
+drowsiness = 0
+awakeness = 0
+drowsiness_confidence = 0.0
+awakeness_confidence = 0.0
 last_frames = deque(maxlen=num_frames)
+drowsinessAndConfidence = []
 
 if args.path.lower().endswith(('.mp4', '.avi', '.mov', '.flv', '.wmv')):
     cap = cv2.VideoCapture(args.path)
@@ -91,11 +95,15 @@ if args.path.lower().endswith(('.mp4', '.avi', '.mov', '.flv', '.wmv')):
             if len(last_frames) == num_frames:
                 print(f"Processing frame set starting at frame #{frameCount - num_frames + 1}")
                 predicted_class, confidence_score = process_images(np.array(list(last_frames)))
-
+                drowsinessAndConfidence.append(confidence_score)
                 if predicted_class == 0:
                     print(f"At current set of frames, subject is Awake with confidence score of {confidence_score}")
+                    awakeness += 1
+                    awakeness_confidence += confidence_score
                 else:
                     print(f"At current set of frames, subject is Drowsy with confidence score of {confidence_score}")
+                    drowsiness += 1
+                    drowsiness_confidence += confidence_score
 
                 last_frames.clear()
 
@@ -108,3 +116,18 @@ if args.path.lower().endswith(('.mp4', '.avi', '.mov', '.flv', '.wmv')):
     cv2.destroyAllWindows()
 else:
     print("Invalid file type. Please provide a video file.")
+
+total_confidence = awakeness_confidence + drowsiness_confidence
+if total_confidence > 0:
+    awake_percent = (awakeness_confidence / total_confidence) * 100
+    drowsy_percent = (drowsiness_confidence / total_confidence) * 100
+else:
+    awake_percent = 0
+    drowsy_percent = 0
+
+print(f"Subject is {awake_percent:.2f}% awake and {drowsy_percent:.2f}% drowsy based on model confidence.")
+
+meanConfidence = np.mean(drowsinessAndConfidence)
+print(f"Mean of confidence of classification: {meanConfidence}")
+std_dev_confidence = np.std(drowsinessAndConfidence)
+print(f"Standard deviation of confidence: {std_dev_confidence}")
