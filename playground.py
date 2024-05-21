@@ -72,6 +72,7 @@ plt.show()
 df_numeric = df._get_numeric_data()
 with np.errstate(divide='ignore', invalid='ignore'):
     corr_matrix = df_numeric.corr()
+np.fill_diagonal(corr_matrix.values, np.nan)  # Set the diagonal values to NaN
 plt.figure(figsize=(12, 8))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
 plt.title('Correlation Matrix')
