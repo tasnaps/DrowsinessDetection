@@ -1,6 +1,16 @@
 # Video and Image Analysis using ViT / VideoMAE
 
-This project implements an analysis of video and image data using the Vision Transformer (ViT) model and the VideoMAE model. It allows processing video streams and static images for various types of detection tasks.
+This project was made for University of Eastern Finland course: Advanced Human Computer Interaction course.
+
+We followed these steps:
+Record videos for a period of days, at the same time do a subjective KSS (Karolinska Sleepiness Scale) analysis.
+Analyze all the videos with a script: VideoMAE.py
+Later using the MainAnalyzer we analyzed the results - what we were looking for was correlation between scores and model analysis.
+
+The given  model gave awake biased classifications, and correlation between KSS and Model analysis remained weak.
+
+
+
 
 MainAnalyzer.py script uses a pretrained deep learning model to analyze a series of video files, detecting and classifying whether the individual in each video appears to be awake or drowsy. This analysis is performed on a frame-by-frame basis, prioritizing computational efficiency by processing batches of frames concurrently. The results of these classifications, including counts and confidence-weighted percentages for the awake and drowsy states, are logged and saved to a CSV file for easy review and further analysis.
 
