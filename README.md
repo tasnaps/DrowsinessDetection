@@ -3,11 +3,11 @@
 This project was made for University of Eastern Finland course: Advanced Human Computer Interaction course.
 
 We followed these steps:
-Record videos for a period of days, at the same time do a subjective KSS (Karolinska Sleepiness Scale) analysis.
-Analyze all the videos with a script: VideoMAE.py
-Later using the MainAnalyzer we analyzed the results - what we were looking for was correlation between scores and model analysis.
+- Record videos for a period of days, at the same time do a subjective KSS (Karolinska Sleepiness Scale) analysis.
+- Analyze all the videos with a script: VideoMAE.py
+- Later using the MainAnalyzer we analyzed the results - what we were looking for was correlation between scores and model analysis.
 
-The given  model gave awake biased classifications, and correlation between KSS and Model analysis remained weak.
+### The given  model gave awake biased classifications, and correlation between KSS and Model analysis remained weak.
 
 
 
