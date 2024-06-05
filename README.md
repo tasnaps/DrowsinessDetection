@@ -1,4 +1,4 @@
-# Video and Image Analysis using ViT / VideoMAE
+# Video analysis using VideoMAE
 
 This project was made for University of Eastern Finland course: Advanced Human Computer Interaction course.
 
